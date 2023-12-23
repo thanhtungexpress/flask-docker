@@ -16,9 +16,12 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: "3.9"
+      - name: Install Dependencies
+        run: |
+          pip install tomlkit requests
       - name: Install Poetry
         run: |
-          python -m pip install poetry==1.1
+          pip install poetry
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:
