@@ -15,18 +15,16 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.9"
-      - name: Install Dependencies
-        run: |
-          pip install tomlkit requests
+          python-version: 3.8
       - name: Install Poetry
         run: |
-          pip install poetry
+          pip install --upgrade poetry
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: "1.1"
-      #- name: Install dependencies
-      #  run: poetry install
+      - name: Install dependencies
+        run: poetry install
       - name: Testing
         run: poetry run pytest
+
